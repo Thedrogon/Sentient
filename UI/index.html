@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentient - The AI Sentiment Analyzer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body class="bg-stone-50 text-slate-800">
+
+    <!-- Floating Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 p-4">
+        <nav
+            class="container mx-auto max-w-4xl bg-stone-200 backdrop-blur-lg border border-stone-250 rounded-full px-6 py-3 flex justify-between items-center shadow-md">
+            <a href="#" class="text-2xl font-bold text-slate-900">Sentient 🎭</a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#how-it-works" class="text-slate-600 hover:text-emerald-600 transition-colors">How It Works</a>
+                <a href="#use-cases" class="text-slate-600 hover:text-emerald-600 transition-colors">Use Cases</a>
+                <a href="#analyzer"
+                    class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 px-5 rounded-full transition-transform transform hover:scale-105">Try
+                    The Analyzer</a>
+            </div>
+            <!-- Mobile Menu Button (optional, for future enhancement) -->
+            <div class="md:hidden">
+                <button class="text-slate-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <!-- Increased top padding (pt-40) to prevent content from hiding under the fixed header -->
+        <section id="home" class="container mx-auto px-6 pt-40 pb-24 md:pt-48 md:pb-32 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight">
+                Understand Your Text, <span class="text-emerald-600">Instantly</span>.
+            </h1>
+            <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-600">
+                Unlock the emotion behind words. Our powerful AI analyzes customer feedback, social media posts, and
+                product reviews to give you clear, actionable sentiment insights.
+            </p>
+            <a href="#analyzer"
+                class="mt-10 inline-block bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-full transition-transform transform hover:scale-105 shadow-lg">
+                Analyze Your First Sentence
+            </a>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="bg-white py-20 md:py-28">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Simple Process, Powerful Results</h2>
+                <p class="mt-4 max-w-xl mx-auto text-slate-600">In just three simple steps, our model deciphers the
+                    sentiment of your text.</p>
+                <div class="mt-16 grid md:grid-cols-3 gap-12 text-left">
+                    <!-- Step 1 -->
+                    <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200">
+                        <div class="text-3xl font-bold text-emerald-500">01</div>
+                        <h3 class="mt-4 text-xl font-semibold text-slate-900">Input Your Text</h3>
+                        <p class="mt-2 text-slate-600">Paste or type any piece of text—a tweet, a review, or an
+                            email—into the analyzer.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200">
+                        <div class="text-3xl font-bold text-emerald-500">02</div>
+                        <h3 class="mt-4 text-xl font-semibold text-slate-900">AI Processing</h3>
+                        <p class="mt-2 text-slate-600">Our NLP model, trained on millions of examples, analyzes the
+                            nuances of the language.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="bg-stone-50 p-8 rounded-2xl border border-stone-200">
+                        <div class="text-3xl font-bold text-emerald-500">03</div>
+                        <h3 class="mt-4 text-xl font-semibold text-slate-900">Receive Insight</h3>
+                        <p class="mt-2 text-slate-600">Instantly get a clear Positive or Negative sentiment
+                            classification.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analyzer Section -->
+        <section id="analyzer" class="py-20 md:py-28">
+            <div
+                class="w-full max-w-2xl mx-auto p-6 md:p-10 bg-white rounded-2xl shadow-2xl border border-stone-200 space-y-6">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Try the Analyzer</h2>
+                    <p class="text-slate-600 mt-2">See the magic in action.</p>
+                </div>
+                <div>
+                    <label for="text-input" class="sr-only">Text Input</label>
+                    <textarea id="text-input" rows="6"
+                        class="w-full p-4 bg-stone-100 border-2 border-stone-200 rounded-lg text-slate-700 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition duration-200"
+                        placeholder="e.g., 'The customer service was incredibly helpful and friendly!'"></textarea>
+                </div>
+                <button id="analyze-button" onclick="analyzeSentiment()"
+                    class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-emerald-500">
+                    Analyze Sentiment
+                </button>
+                <div id="result-container" class="p-4 rounded-lg text-center font-semibold text-lg hidden border">
+                    <span id="result-text"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section id="use-cases" class="bg-white py-20 md:py-28">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 text-center">Unlock Insights Everywhere</h2>
+                <p class="mt-4 max-w-xl mx-auto text-slate-600 text-center">Sentiment analysis has powerful, real-world
+                    applications.</p>
+                <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Use Case 1 -->
+                    <div class="bg-stone-200 p-8 rounded-2xl border border-stone-200">
+                        <h3 class="text-xl font-semibold text-slate-900">Customer Feedback</h3>
+                        <p class="mt-2 text-slate-600">Quickly sort through thousands of support tickets or survey
+                            responses to gauge customer satisfaction.</p>
+                    </div>
+                    <!-- Use Case 2 -->
+                    <div class="bg-stone-200 p-8 rounded-2xl border border-stone-200">
+                        <h3 class="text-xl font-semibold text-slate-900">Social Media Monitoring</h3>
+                        <p class="mt-2 text-slate-600">Track your brand's reputation in real-time by analyzing tweets,
+                            comments, and posts.</p>
+                    </div>
+                    <!-- Use Case 3 -->
+                    <div class="bg-stone-200 p-8 rounded-2xl border border-stone-200">
+                        <h3 class="text-xl font-semibold text-slate-900">Product Review Analysis</h3>
+                        <p class="mt-2 text-slate-600">Understand what customers love or hate about your products by
+                            analyzing online reviews.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Sentient. All rights reserved.</p>
+            <p class="text-sm mt-2">A demonstration project for end-to-end NLP.</p>
+        </div>
+    </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>

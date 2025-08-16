@@ -1,0 +1,30 @@
+/* Set the default font for the entire page */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Custom styles for the result display */
+.header{
+    background-color: #059669;
+}
+#result-container.positive {
+    background-color: #10B981;
+    /* Emerald-500 */
+    border-color: #059669;
+    /* Emerald-600 */
+    color: white;
+}
+
+#result-container.negative {
+    background-color: #EF4444;
+    /* Red-500 */
+    border-color: #DC2626;
+    /* Red-600 */
+    color: white;
+}
+
+/* Simple transition for a smoother appearance */
+#result-container,
+#analyze-button {
+    transition: all 0.3s ease-in-out;
+}
